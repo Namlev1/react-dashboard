@@ -1,5 +1,5 @@
 const Orders = (props) => {
-    return <div>Orders</div>;
-};
+  return <div>Orders</div>
+}
 
-export default Orders;
+export default Orders

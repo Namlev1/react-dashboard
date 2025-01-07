@@ -1,5 +1,5 @@
 const SaleChart = (props) => {
-    return <div>SaleChart</div>;
-};
+  return <div>SaleChart</div>
+}
 
-export default SaleChart;
+export default SaleChart

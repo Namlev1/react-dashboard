@@ -1,5 +1,5 @@
 const QualityOfSale = (props) => {
-    return <div>QualityOfSale</div>;
-};
+  return <div>QualityOfSale</div>
+}
 
-export default QualityOfSale;
+export default QualityOfSale

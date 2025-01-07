@@ -1,5 +1,5 @@
 const SubmitButton = (props) => {
-    return <div>SubmitButton</div>;
-};
+  return <div>SubmitButton</div>
+}
 
-export default SubmitButton;
+export default SubmitButton

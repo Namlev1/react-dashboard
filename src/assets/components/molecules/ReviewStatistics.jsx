@@ -1,5 +1,5 @@
 const ReviewStatistics = (props) => {
-    return <div>ReviewStatistics</div>;
-};
+  return <div>ReviewStatistics</div>
+}
 
-export default ReviewStatistics;
+export default ReviewStatistics
