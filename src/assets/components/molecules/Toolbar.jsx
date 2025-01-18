@@ -1,21 +1,36 @@
 import React, { useState } from 'react';
 import './Toolbar.css';
+import SunIcon from '../atoms/Icons/SunIcon.svg';
+import MoonIcon from '../atoms/Icons/MoonIcon.svg';
+import LanguageIcon from '../atoms/Icons/LanguageIcon.svg';
 
 const Toolbar = () => {
-    const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const [isShopDropdownOpen, setShopDropdownOpen] = useState(false);
+    const [isAccountDropdownOpen, setAccountDropdownOpen] = useState(false);
 
-    const toggleDropdown = () => {
-        setDropdownOpen(!isDropdownOpen);
+    const toggleShopDropdown = () => {
+        setShopDropdownOpen(!isShopDropdownOpen);
+    };
+
+    const toggleAccountDropdown = () => {
+        setAccountDropdownOpen(!isAccountDropdownOpen);
     };
 
     return (
         <div className="toolbar">
-            <div className="toolbar-content">
+            <div className="toolbar-content-left">
+                <img src={MoonIcon} alt="Sun Icon" width="20" height="20"/>
+                <img src={LanguageIcon} alt="Sun Icon" width="20" height="20"/>
+                En
+            </div>
+
+
+            <div className="toolbar-content-right">
                 <div className="divider" />
-                <div className="shop-dropdown" onClick={toggleDropdown}>
+                <div className="shop-dropdown" onClick={toggleShopDropdown}>
                     Shop
                     <span className="arrow">▼</span>
-                    {isDropdownOpen && (
+                    {isShopDropdownOpen && (
                         <div className="dropdown-menu">
                             <div className="dropdown-item">Shop 1</div>
                             <div className="dropdown-item">Shop 2</div>
@@ -24,7 +39,18 @@ const Toolbar = () => {
                     )}
                 </div>
                 <div className="divider" />
-                <div className="username">Username</div>
+                <div className="account-dropdown" onClick={toggleAccountDropdown}>
+                    Username
+                    <span className="arrow">▼</span>
+                    {isAccountDropdownOpen && (
+                        <div className="dropdown-menu">
+                            <div className="dropdown-item">Settings</div>
+                            <div className="dropdown-item">Help</div>
+                            <div className="dropdown-item">Switch account</div>
+                            <div className="dropdown-item">Log out</div>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
