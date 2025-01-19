@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;  /* Rozdziela elementy na lewą i prawą stronę */
     align-items: center;
-    background-color: #007bff;
+    background-color: var(--color-main);
     color: white;
     height: 50px;
     padding: 0 20px;
@@ -41,9 +41,9 @@
     position: absolute;
     left: -20px;
     top: 35px;
-    background-color: #007bff;
+    background-color: var(--color-main);
     color: white;
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 4px;
     width: 240px;
     z-index: 10;

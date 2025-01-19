@@ -6,7 +6,26 @@
   --red: #c61d1d;
   --light-grey: #d9d9d9;
   --dark-grey: #555555;
+
+  --color-background: #ffffff;
+  --color-main: #1c6fb4;
+  --table-background: #d9d9d9;
+  --table-text: #555555;
+  --dislike: #c61d1d;
+  --like: #5db41c;
+  --widget-headline: #ffffff;
+  --text: #000000;
 }
+
+.dark-mode {
+  --color-background: #515151;
+  --color-main: #5b0e97;
+  --table-background: #302f2f;
+  --table-text-color: #ffffff;
+  --text: #ffffff;
+}
+
+
 
 /*
   Meyer reset, usuwa większość defaultowych styli
