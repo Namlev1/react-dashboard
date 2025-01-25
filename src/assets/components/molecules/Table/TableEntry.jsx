@@ -1,7 +1,6 @@
 import styles from './Table.module.css'
 
 const TableEntry = ({ content, gridTemplateColumns }) => {
-  console.log(gridTemplateColumns)
   return (
     <div className={styles['table-content']} style={{ gridTemplateColumns }}>
       {content.map((field, idx) => {

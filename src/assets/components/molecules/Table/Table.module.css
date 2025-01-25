@@ -3,10 +3,14 @@
     gap: .3rem;
 }
 
+.table-content,
+.table-header {
+    display: grid;
+}
+
 .table-content {
     background-color: var(--table-background);
     border-radius: 16px;
-    display: grid;
     transition: background-color ease-in 200ms;
 }
 
@@ -14,9 +18,14 @@
     background-color: var(--table-hover);
 }
 
-.table-content p {
+.table-content p,
+.table-header p {
     font-size: 1rem;
     margin: .2rem;
     padding: .3rem 0;
     font-weight: normal;
+}
+
+.table-header p {
+    color: var(--text-opaque);
 }

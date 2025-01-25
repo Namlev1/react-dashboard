@@ -10,11 +10,11 @@ const QualityOfSale = () => {
 
       <div className={'widget-content'}>
         <div className={styles['score-container']}>
-          <div className={styles['widget-frame']}>
+          <div className={'widget-frame'}>
             <h3>Your Category:</h3>
             <p>4</p>
           </div>
-          <div className={styles['widget-frame']}>
+          <div className={'widget-frame'}>
             <h3>Your total Score:</h3>
             <p>76/100</p>
           </div>
@@ -24,7 +24,7 @@ const QualityOfSale = () => {
           <p className={'opaque'} style={{ marginBottom: '.2rem' }}>
             Things you might want to work on
           </p>
-          <div className={styles['widget-frame']}>
+          <div className={'widget-frame'}>
             <Table ratio={'3-1'}>
               <TableEntry content={['Delivery time', '14/20']} />
               <TableEntry content={['Quality of products', '5/20']} />

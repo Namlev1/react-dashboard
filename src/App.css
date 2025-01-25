@@ -1,14 +1,27 @@
 #root {
     max-width: 100vw;
 }
-body{
+
+body {
     background-color: var(--color-background);
 }
 
 .main {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     padding: 2rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.main > * {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
 }
 
@@ -29,4 +42,28 @@ body{
 
 .opaque {
     color: var(--text-opaque);
+}
+
+.widget-frame {
+    background-color: var(--color-background);
+    border: 1px solid var(--text);
+    border-radius: 12px;
+    padding: .5rem;
+}
+
+.widget-frame * {
+    color: var(--text);
+}
+
+.widget-frame h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.widget-frame p {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
 }
