@@ -2,8 +2,10 @@ import WidgetTitleBar from '../../atoms/WidgetTitleBar/WidgetTitleBar.jsx'
 import Table from '../../molecules/Table/Table.jsx'
 import TableEntry from '../../molecules/Table/TableEntry.jsx'
 import TableHeader from '../../molecules/Table/TableHeader.jsx'
+import { useSelector } from 'react-redux'
 
 const Orders = () => {
+  const orders = useSelector((store) => store.accountSlice.orders)
   return (
     <div className={'widget'}>
       <WidgetTitleBar text={'Orders'} />
@@ -14,23 +16,17 @@ const Orders = () => {
           <div className={'widget-frame'}>
             <Table ratio={'3-2-3-2'}>
               <TableHeader content={['name', 'buyer', 'date', 'price']} />
-              <TableEntry
-                content={['nvidia GPU basic', 'user1', '24.01.2024', '40$']}
-              />
-              <TableEntry
-                content={[
-                  'nvidia GPU expensive',
-                  'user2',
-                  '03.01.2023',
-                  '123$'
-                ]}
-              />
-              <TableEntry
-                content={['nvidia GPU cheap', 'user3', '12.01.2024', '36$']}
-              />
-              <TableEntry
-                content={['nvidia GPU old', 'user4', '16.01.1996', '78$']}
-              />
+              {orders.map((order) => (
+                <TableEntry
+                  key={order.id}
+                  content={[
+                    order.name,
+                    order.buyer,
+                    order.date,
+                    `${order.price}$`
+                  ]}
+                />
+              ))}
             </Table>
           </div>
         </div>

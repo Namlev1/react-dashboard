@@ -2,8 +2,11 @@ import WidgetTitleBar from '../../atoms/WidgetTitleBar/WidgetTitleBar.jsx'
 import styles from './QualityOfSale.module.css'
 import Table from '../../molecules/Table/Table.jsx'
 import TableEntry from '../../molecules/Table/TableEntry.jsx'
+import { useSelector } from 'react-redux'
 
 const QualityOfSale = () => {
+  const data = useSelector((store) => store.accountSlice.quality)
+
   return (
     <div className={'widget'}>
       <WidgetTitleBar text={'Quality of sale'} />
@@ -12,11 +15,11 @@ const QualityOfSale = () => {
         <div className={styles['score-container']}>
           <div className={'widget-frame'}>
             <h3>Your Category:</h3>
-            <p>4</p>
+            <p>{data.category}</p>
           </div>
           <div className={'widget-frame'}>
             <h3>Your total Score:</h3>
-            <p>76/100</p>
+            <p>{data.score}/100</p>
           </div>
         </div>
 
@@ -24,11 +27,15 @@ const QualityOfSale = () => {
           <p className={'opaque'} style={{ marginBottom: '.2rem' }}>
             Things you might want to work on
           </p>
+
           <div className={'widget-frame'}>
             <Table ratio={'3-1'}>
-              <TableEntry content={['Delivery time', '14/20']} />
-              <TableEntry content={['Quality of products', '5/20']} />
-              <TableEntry content={['Availability', '16/20']} />
+              {data.details.map((order, idx) => (
+                <TableEntry
+                  key={idx}
+                  content={[order.name, `${order.score}/20`]}
+                />
+              ))}
             </Table>
           </div>
         </div>
