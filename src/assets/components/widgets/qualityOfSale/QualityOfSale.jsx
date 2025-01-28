@@ -30,10 +30,10 @@ const QualityOfSale = () => {
 
           <div className={'widget-frame'}>
             <Table ratio={'3-1'}>
-              {data.details.map((order, idx) => (
+              {data.details.map((detail, idx) => (
                 <TableEntry
                   key={idx}
-                  content={[order.name, `${order.score}/20`]}
+                  content={[detail.name, `${detail.score}/20`]}
                 />
               ))}
             </Table>
