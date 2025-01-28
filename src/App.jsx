@@ -6,7 +6,6 @@ import UseViewportWidth from './hooks/useViewportWidth.js'
 
 function App() {
   const viewportWidth = UseViewportWidth()
-  console.log(viewportWidth)
   return (
     <div className="App">
       <Toolbar /> {/* Wyświetlenie komponentu Toolbar */}
