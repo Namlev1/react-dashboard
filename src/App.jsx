@@ -5,6 +5,7 @@ import Orders from './assets/components/widgets/orders/Orders.jsx'
 import UseViewportWidth from './hooks/useViewportWidth.js'
 import { useDispatch } from 'react-redux'
 import { toggle } from './store/accountSlice.js'
+import Reviews from './assets/components/widgets/reviews/Reviews.jsx'
 
 function App() {
   const dispatch = useDispatch()
@@ -18,6 +19,7 @@ function App() {
           <div>
             <QualityOfSale />
             <Orders />
+            <Reviews />
           </div>
         ) : (
           <>
@@ -26,6 +28,7 @@ function App() {
             </div>
             <div>
               <Orders />
+              <Reviews />
             </div>
           </>
         )}
