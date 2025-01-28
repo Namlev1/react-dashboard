@@ -8,7 +8,7 @@ const TableEntry = ({ content, gridTemplateColumns }) => {
           // don't render left border
           if (field.src) {
             return (
-              <div key={field.src} className={'flex-center'}>
+              <div key={field.src} className={styles['center-img']}>
                 <img src={field.src} alt={field.alt} />
               </div>
             )
@@ -18,19 +18,23 @@ const TableEntry = ({ content, gridTemplateColumns }) => {
 
         if (field.src) {
           return (
-            <div
-              key={field.src}
-              className={'flex-center'}
-              style={{ borderLeft: '1px solid var(--text)' }}
-            >
-              <img src={field.src} alt={field.alt} />
+            <div key={field.src} className={styles['center-row']}>
+              {/*<div style={{ borderLeft: '1px solid var(--text)', width: '100%' }}>*/}
+              <div
+                className={styles['center-img']}
+                style={{ borderLeft: '1px solid var(--text)' }}
+              >
+                <img src={field.src} alt={field.alt} />
+              </div>
             </div>
           )
         }
         return (
-          <p key={field} style={{ borderLeft: '1px solid var(--text)' }}>
-            {field}
-          </p>
+          <div key={field} className={styles.center}>
+            <div>
+              <p style={{ borderLeft: '1px solid var(--text)' }}>{field}</p>
+            </div>
+          </div>
         )
       })}
     </div>

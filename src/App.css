@@ -67,9 +67,3 @@ body {
     margin-top: .5rem;
     margin-bottom: 1rem;
 }
-
-.flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}

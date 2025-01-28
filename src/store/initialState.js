@@ -89,7 +89,46 @@ const initialState = {
         comment: 'Overheats under heavy load. Disappointed.'
       }
     ]
-  }
+  },
+  ranking: [
+    {
+      id: 1,
+      photo: 'https://m.media-amazon.com/images/I/71PCEkj9DYS.jpg',
+      name: 'NVIDIA T400',
+      amountSold: 8,
+      return: 3916.48
+    },
+    {
+      id: 2,
+      photo: 'https://proline.pl/pic/gv-r67xtgaming-oc-12gd_0.jpg',
+      name: 'AMD Radeon RX 6700 XT',
+      amountSold: 92,
+      return: 7820.75
+    },
+    {
+      id: 3,
+      photo: 'https://m.media-amazon.com/images/I/618n+u4X9iL.jpg',
+      name: 'Intel Arc A750',
+      amountSold: 65,
+      return: 4680.25
+    },
+    {
+      id: 4,
+      photo:
+        'https://f00.esfr.pl/foto/7/87299108721/208ac4068f56f25329b407339a51fcf/msi-karta-graf-msi-rtx-3060-gam-12g-rev-2-0,87299108721_5.webp',
+      name: 'NVIDIA GeForce RTX 3060',
+      amountSold: 110,
+      return: 13200.5
+    },
+    {
+      id: 5,
+      photo:
+        'https://www.kakto.pl/img/product_media/70001-71000/Gigabyte-Karta-graficzna-Radeon-RX-6600-EAGLE-8GB-GDDR6-128bit-2DP-2HDMI-405379.jpg',
+      name: 'AMD Radeon RX 6600',
+      amountSold: 88,
+      return: 7920.8
+    }
+  ]
 }
 
 export default initialState

@@ -6,6 +6,7 @@ import UseViewportWidth from './hooks/useViewportWidth.js'
 import { useDispatch } from 'react-redux'
 import { toggle } from './store/accountSlice.js'
 import Reviews from './assets/components/widgets/reviews/Reviews.jsx'
+import ProductRanking from './assets/components/widgets/productRanking/ProductRanking.jsx'
 
 function App() {
   const dispatch = useDispatch()
@@ -25,6 +26,7 @@ function App() {
           <>
             <div>
               <QualityOfSale />
+              <ProductRanking />
             </div>
             <div>
               <Orders />

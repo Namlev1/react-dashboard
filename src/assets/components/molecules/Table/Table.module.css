@@ -26,6 +26,35 @@
     font-weight: normal;
 }
 
+.center {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.center div {
+    width: 100%;
+}
+
+.center p {
+    width: 100%;
+    text-align: center;
+}
+
 .table-header p {
     color: var(--text-opaque);
+}
+
+.center-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.center-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
