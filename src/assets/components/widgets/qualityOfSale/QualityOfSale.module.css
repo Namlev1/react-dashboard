@@ -1,0 +1,5 @@
+.score-container {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    gap: 1rem;
+}

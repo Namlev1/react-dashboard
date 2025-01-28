@@ -1,0 +1,9 @@
+.product-table img {
+    margin: .3rem;
+    width: 70%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.product-table p {
+}

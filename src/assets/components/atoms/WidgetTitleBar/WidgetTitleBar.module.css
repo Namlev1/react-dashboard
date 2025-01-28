@@ -1,0 +1,16 @@
+.widget-title-bar {
+    background-color: var(--color-main);
+    color: white;
+    padding: 0.5rem 0.7rem;
+    border-bottom: 1px solid var(--text);
+    position: relative;
+    z-index: 1;
+    border-radius: 0 0 12px 12px;
+}
+
+.widget-title-bar h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+

@@ -1,0 +1,60 @@
+.table {
+    display: grid;
+    gap: .3rem;
+}
+
+.table-content,
+.table-header {
+    display: grid;
+}
+
+.table-content {
+    background-color: var(--table-background);
+    border-radius: 16px;
+    transition: background-color ease-in 200ms;
+}
+
+.table-content:hover {
+    background-color: var(--table-hover);
+}
+
+.table-content p,
+.table-header p {
+    font-size: 1rem;
+    margin: .2rem;
+    padding: .3rem 0;
+    font-weight: normal;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.center div {
+    width: 100%;
+}
+
+.center p {
+    width: 100%;
+    text-align: center;
+}
+
+.table-header p {
+    color: var(--text-opaque);
+}
+
+.center-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.center-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
