@@ -1,0 +1,3 @@
+.gear-icon {
+    filter: invert(var(--gear-icon-color));
+}

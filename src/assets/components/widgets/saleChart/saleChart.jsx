@@ -1,11 +1,6 @@
 import WidgetTitleBar from '../../atoms/WidgetTitleBar/WidgetTitleBar.jsx'
-
-import { useSelector } from 'react-redux'
-import styles from "../reviews/Reviews.module.css";
-import LikeIcon from "../../atoms/Icons/LikeIcon.svg";
-import DislikeIcon from "../../atoms/Icons/DislikeIcon.svg";
-import Table from "../../molecules/Table/Table.jsx";
-import TableEntry from "../../molecules/Table/TableEntry.jsx";
+import GearIcon from '../../atoms/Icons/GearIcon.svg';
+import './SaleChart.css'
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -16,11 +11,13 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import LanguageIcon from "../../atoms/Icons/LanguageIcon.svg";
+import React from "react";
 
 // Rejestracja modułów Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const SaleChart = (props) => {
+const SaleChart = () => {
   // Dane dla wykresu
   const data = {
     labels: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
@@ -81,7 +78,10 @@ const SaleChart = (props) => {
         <WidgetTitleBar text={'Sale Chart'} />
         <div className={"widget-content"}>
           <div className={"widget-frame"}>
+            <img src={GearIcon} alt="Gear Icon" className="gear-icon"/>
             <Bar data={data} options={options} />
+
+
           </div>
         </div>
       </div>
