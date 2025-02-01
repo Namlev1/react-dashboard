@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { toggle } from './store/accountSlice.js'
 import Reviews from './assets/components/widgets/reviews/Reviews.jsx'
 import ProductRanking from './assets/components/widgets/productRanking/ProductRanking.jsx'
+import SaleChart from "./assets/components/widgets/saleChart/saleChart.jsx";
 
 function App() {
   const dispatch = useDispatch()
@@ -27,10 +28,11 @@ function App() {
             <div>
               <QualityOfSale />
               <ProductRanking />
+              <Orders />
             </div>
             <div>
-              <Orders />
-              <Reviews />
+
+              <Reviews /><SaleChart/>
             </div>
           </>
         )}
