@@ -1,17 +1,34 @@
-import { useSelector } from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import WidgetTitleBar from '../../atoms/WidgetTitleBar/WidgetTitleBar.jsx'
 import Table from '../../molecules/Table/Table.jsx'
 import TableHeader from '../../molecules/Table/TableHeader.jsx'
 import TableEntry from '../../molecules/Table/TableEntry.jsx'
 import styles from './ProductRanking.module.css'
+import DropdownMenu from "../../molecules/DropdownMenu/DropdownMenu.jsx";
+import {setChosenRankingSort} from "../../../../store/accountSlice.js";
 
 const ProductRanking = () => {
   const ranking = useSelector((store) => store.accountSlice.ranking)
+  const chosenOrdersSort = useSelector((store) => store.accountSlice.chosenRankingSort);
+  const dispatch = useDispatch();
+  const handleOptionSelect = (option) => {
+      dispatch(setChosenRankingSort(option));
+  };
+
   return (
     <div className={'widget'}>
       <WidgetTitleBar text={'Product Ranking'} />
 
-      <p>Todo sort select</p>
+        <DropdownMenu
+            title={'Sort by' || "Select an option"}
+            options={[
+                "Best to worst",
+                "Worst to best"
+            ]}
+            onOptionSelect={handleOptionSelect}
+            storeVariable={chosenOrdersSort}
+        />
+
       <div className={'widget-content'}>
         <div>
           <div className={'widget-frame ' + styles['product-table']}>

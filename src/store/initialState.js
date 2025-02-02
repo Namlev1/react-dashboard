@@ -129,7 +129,8 @@ const initialState = {
       return: 7920.8
     }
   ],
-  chosenOrdersSort: "Shipped orders"
+  chosenOrdersSort: "Shipped orders",
+  chosenRankingSort: "Best to worst"
 }
 
 export default initialState

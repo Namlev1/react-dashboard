@@ -33,19 +33,8 @@ function App() {
             </div>
             <div>
 
-              <Reviews /><SaleChart/>
-                <div>
-                    <DropdownMenu
-                        title="Orders type"
-                        options={[
-                            "Paid orders",
-                            "Unpaid orders",
-                            "Shipped orders",
-                            "Unshipped orders",
-                            "Refunds"
-                        ]}
-                    />
-                </div>
+              <Reviews />
+              <SaleChart/>
             </div>
           </>
         )}

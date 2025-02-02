@@ -8,7 +8,7 @@ import {setChosenOrdersSort} from "../../../../store/accountSlice.js";
 
 const Orders = () => {
   const orders = useSelector((store) => store.accountSlice.orders)
-    const chosenOrdersSort = useSelector((store) => store.accountSlice.chosenOrdersSort);
+  const chosenOrdersSort = useSelector((store) => store.accountSlice.chosenOrdersSort);
 
     const dispatch = useDispatch();
 

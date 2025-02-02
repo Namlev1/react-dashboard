@@ -11,11 +11,16 @@ const accountSlice = createSlice({
     },
     setChosenOrdersSort: (state, action) => {
       state.chosenOrdersSort = action.payload;
+    },
+    setChosenRankingSort: (state, action) => {
+      state.chosenRankingSort = action.payload;
     }
   }
 
 })
 
 export const { setChosenOrdersSort } = accountSlice.actions;
+
+export const { setChosenRankingSort } = accountSlice.actions;
 export default accountSlice.reducer
 export const { toggle } = accountSlice.actions
