@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './Toolbar.css';
 import {DarkModeToggle} from "../atoms/DarkModeButton.jsx";
-import SunIcon from '../atoms/Icons/SunIcon.svg';
-import MoonIcon from '../atoms/Icons/MoonIcon.svg';
 import LanguageIcon from '../atoms/Icons/LanguageIcon.svg';
 
 const Toolbar = () => {
@@ -32,7 +30,7 @@ const Toolbar = () => {
                     Shop
                     <span className="arrow">▼</span>
                     {isShopDropdownOpen && (
-                        <div className="dropdown-menu">
+                        <div className="toolbar-dropdown-menu">
                             <div className="dropdown-item">Shop 1</div>
                             <div className="dropdown-item">Shop 2</div>
                             <div className="dropdown-item">Shop 3</div>
@@ -44,7 +42,7 @@ const Toolbar = () => {
                     Username
                     <span className="arrow">▼</span>
                     {isAccountDropdownOpen && (
-                        <div className="dropdown-menu">
+                        <div className="toolbar-dropdown-menu">
                             <div className="dropdown-item">Settings</div>
                             <div className="dropdown-item">Help</div>
                             <div className="dropdown-item">Switch account</div>

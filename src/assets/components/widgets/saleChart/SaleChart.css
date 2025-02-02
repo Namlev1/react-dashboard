@@ -1,3 +1,5 @@
 .gear-icon {
     filter: invert(var(--gear-icon-color));
+    float:right;
+    padding: 5px;
 }

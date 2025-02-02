@@ -37,7 +37,7 @@
     font-size: 12px;
 }
 
-.dropdown-menu {
+.toolbar-dropdown-menu {
     position: absolute;
     left: -20px;
     top: 35px;

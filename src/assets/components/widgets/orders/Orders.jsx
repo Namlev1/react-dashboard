@@ -3,6 +3,7 @@ import Table from '../../molecules/Table/Table.jsx'
 import TableEntry from '../../molecules/Table/TableEntry.jsx'
 import TableHeader from '../../molecules/Table/TableHeader.jsx'
 import { useSelector } from 'react-redux'
+import DropdownMenu from "../../molecules/DropdownMenu/DropdownMenu.jsx";
 
 const Orders = () => {
   const orders = useSelector((store) => store.accountSlice.orders)
@@ -10,7 +11,18 @@ const Orders = () => {
     <div className={'widget'}>
       <WidgetTitleBar text={'Orders'} />
 
-      <p>Todo sort select</p>
+
+            <DropdownMenu
+                title="Orders type"
+                options={[
+                    "Paid orders",
+                    "Unpaid orders",
+                    "Shipped orders",
+                    "Unshipped orders",
+                    "Refunds"
+                ]}
+            />
+
       <div className={'widget-content'}>
         <div>
           <div className={'widget-frame'}>
