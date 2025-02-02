@@ -128,7 +128,8 @@ const initialState = {
       amountSold: 88,
       return: 7920.8
     }
-  ]
+  ],
+  chosenOrdersSort: "Shipped orders"
 }
 
 export default initialState

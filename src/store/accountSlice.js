@@ -8,9 +8,14 @@ const accountSlice = createSlice({
   reducers: {
     toggle: (state) => {
       return state.accountId === 1 ? secondState : initialState
+    },
+    setChosenOrdersSort: (state, action) => {
+      state.chosenOrdersSort = action.payload;
     }
   }
+
 })
 
+export const { setChosenOrdersSort } = accountSlice.actions;
 export default accountSlice.reducer
 export const { toggle } = accountSlice.actions

@@ -139,7 +139,8 @@ const secondState = {
       amountSold: 500,
       return: 7500.0
     }
-  ]
+  ],
+  chosenOrdersSort: "Shipped orders"
 }
 
 export default secondState
