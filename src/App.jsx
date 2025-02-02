@@ -8,6 +8,7 @@ import { toggle } from './store/accountSlice.js'
 import Reviews from './assets/components/widgets/reviews/Reviews.jsx'
 import ProductRanking from './assets/components/widgets/productRanking/ProductRanking.jsx'
 import SaleChart from "./assets/components/widgets/saleChart/saleChart.jsx";
+import DropdownMenu from "./assets/components/molecules/DropdownMenu/DropdownMenu.jsx";
 
 function App() {
   const dispatch = useDispatch()
@@ -33,6 +34,18 @@ function App() {
             <div>
 
               <Reviews /><SaleChart/>
+                <div>
+                    <DropdownMenu
+                        title="Orders type"
+                        options={[
+                            "Paid orders",
+                            "Unpaid orders",
+                            "Shipped orders",
+                            "Unshipped orders",
+                            "Refunds"
+                        ]}
+                    />
+                </div>
             </div>
           </>
         )}
