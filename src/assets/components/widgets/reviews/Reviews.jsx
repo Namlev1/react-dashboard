@@ -5,9 +5,21 @@ import { useSelector } from 'react-redux'
 import LikeIcon from '/src/assets/components/atoms/Icons/LikeIcon.svg'
 import DislikeIcon from '/src/assets/components/atoms/Icons/DislikeIcon.svg'
 import styles from './Reviews.module.css'
+import LoadingReviews from '/src/assets/components/atoms/Icons/LoadingReviews.png'
+import {useEffect, useState} from "react";
 
 const Reviews = () => {
   const data = useSelector((store) => store.accountSlice.reviews)
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className={'widget reviews-widget'}>
@@ -36,29 +48,35 @@ const Reviews = () => {
         <div>
           <div className={'widget-frame ' + styles['review-table-frame']}>
             <h3>Most recent reviews</h3>
-            <Table ratio={'10-5-2-13'}>
-              {data.details.map((review) => (
-                <TableEntry
-                  key={review.id}
-                  content={[
-                    review.name,
-                    review.buyer,
-                    {
-                      isImg: true,
-                      src:
-                        review.rating === 'positive' ? LikeIcon : DislikeIcon,
-                      alt: 'Rating icon'
-                    },
-                    review.comment
-                  ]}
-                />
-              ))}
-            </Table>
+            {loading ? (
+                <div className={styles['loading-container']}>
+                  <img src={LoadingReviews} className={styles['loading-icon']}/>
+                </div>
+            ) : (
+                <Table ratio={'10-5-2-13'}>
+                  {data.details.map((review) => (
+                      <TableEntry
+                          key={review.id}
+                          content={[
+                            review.name,
+                            review.buyer,
+                            {
+                              isImg: true,
+                              src:
+                                  review.rating === 'positive' ? LikeIcon : DislikeIcon,
+                              alt: 'Rating icon'
+                            },
+                            review.comment
+                          ]}
+                      />
+                  ))}
+                </Table>
+            )}
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Reviews
