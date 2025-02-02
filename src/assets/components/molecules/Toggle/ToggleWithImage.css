@@ -1,13 +1,14 @@
 .toggle-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    padding: 20px;
+    gap: 10px;
 }
 
 .toggle-box {
     width: 40px;
     height: 40px;
-    border-radius: 0.5rem;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,8 +24,9 @@
 }
 
 .toggle-icon {
-    width: 30px;
-    height: 30px;
+    filter: invert(var(--gear-icon-color));
+    width: 28px;
+    height: 28px;
 }
 
 .toggle-label {

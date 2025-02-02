@@ -3,12 +3,13 @@ import {useEffect, useRef, useState} from "react";
 import GearIcon from '../../atoms/Icons/GearIcon.svg';
 import './SaleChart.css'
 import DropdownMenu from "../../molecules/DropdownMenu/DropdownMenu.jsx";
+import ToggleWithImage from "../../molecules/Toggle/ToggleWithImage.jsx";
+import Cross from "../../atoms/Icons/Cross.svg";
 
-const ChartSettings = ({ options, title, onOptionSelect, storeVariable}) => {
+const ChartSettings = () => {
     const [isOpen, setIsOpen] = useState(false);
     const settingsRef = useRef(null);
 
-    const chosenOrdersSort = useSelector((store) => storeVariable);
     const toggleSettings = () => {
         setIsOpen(!isOpen);
     };
@@ -25,11 +26,7 @@ const ChartSettings = ({ options, title, onOptionSelect, storeVariable}) => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
-
-    const handleOptionClick = (option) => {
-        onOptionSelect(option);
-        setIsOpen(false);
-    };
+    
 
     return (
         <div className="settings-container" ref={settingsRef}>
@@ -42,27 +39,34 @@ const ChartSettings = ({ options, title, onOptionSelect, storeVariable}) => {
                     <DropdownMenu
                         title={'Period' || "Select an option"}
                         options={[
-                            "Best to worst",
-                            "Worst to best"
+                            "Today",
+                            "This week",
+                            "This month",
+                            "Last month"
                         ]}
 
                     />
                     <DropdownMenu
                         title={'Metric' || "Select an option"}
                         options={[
-                            "Best to worst",
-                            "Worst to best"
+                            "Products sold",
+                            "income"
                         ]}
 
                     />
                     <DropdownMenu
                         title={'Chart Type' || "Select an option"}
                         options={[
-                            "Best to worst",
-                            "Worst to best"
+                            "Bar plot",
+                            "Line plot"
                         ]}
 
                     />
+
+                        <ToggleWithImage
+                            label="Show last period"
+                            svgImage={Cross}
+                        />
 
 
                     </div>
