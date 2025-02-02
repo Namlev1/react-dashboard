@@ -17,8 +17,26 @@ const Orders = () => {
         dispatch(setChosenOrdersSort(option));
     };
 
+    // Filtrowanie zamówień na podstawie wybranego statusu
+    const filteredOrders = orders.filter((order) => {
+        switch (chosenOrdersSort) {
+            case 'Paid orders':
+                return order.status === "paid";
+            case 'Unpaid orders':
+                return order.status === 'unpaid';
+            case "Shipped orders":
+                return order.status === 'shipped';
+            case 'Unshipped orders':
+                return order.status === 'unshipped';
+            case 'Refunds':
+                return order.status === 'refund'; // Możesz dodać status „refund”, jeśli go masz
+            default:
+                return true; // Jeżeli nie ma wybranego filtra, zwróć wszystkie zamówienia
+        }
+    });
 
   return (
+
     <div className={'widget'}>
       <WidgetTitleBar text={'Orders'} />
 
@@ -42,7 +60,7 @@ const Orders = () => {
           <div className={'widget-frame'}>
             <Table ratio={'3-2-3-2'}>
               <TableHeader content={['name', 'buyer', 'date', 'price']} />
-              {orders.map((order) => (
+              {filteredOrders.map((order) => (
                 <TableEntry
                   key={order.id}
                   content={[

@@ -24,28 +24,80 @@ const secondState = {
       buyer: 'Michael Green',
       date: '2023-04-12',
       price: '699',
-      id: 5
+      id: 11,
+      status: 'shipped'
     },
     {
       name: 'Intel Core i9-13900K',
       buyer: 'Sarah White',
       date: '2023-05-18',
       price: '589',
-      id: 6
+      id: 12,
+      status: 'shipped'
     },
     {
       name: 'Apple M2 Max',
       buyer: 'David Black',
       date: '2023-06-25',
       price: '1299',
-      id: 7
+      id: 13,
+      status: 'shipped'
     },
     {
       name: 'Samsung Galaxy Book3 Ultra',
       buyer: 'Emily Blue',
       date: '2023-07-30',
       price: '2399',
-      id: 8
+      id: 14,
+      status: 'shipped'
+    },
+    {
+      name: 'ASUS ROG Strix RTX 4090',
+      buyer: 'Chris Taylor',
+      date: '2023-09-12',
+      price: '1599',
+      id: 15,
+      status: 'unpaid'
+    },
+    {
+      name: 'MSI Radeon RX 7900 XT',
+      buyer: 'Sophia Martinez',
+      date: '2023-10-20',
+      price: '899',
+      id: 16,
+      status: 'unpaid'
+    },
+    {
+      name: 'Intel Core i9-12900K',
+      buyer: 'Liam Anderson',
+      date: '2023-11-01',
+      price: '599',
+      id: 17,
+      status: 'refund'
+    },
+    {
+      name: 'Corsair Vengeance 32GB RAM',
+      buyer: 'Emma Thompson',
+      date: '2023-11-15',
+      price: '149',
+      id: 18,
+      status: 'unshipped'
+    },
+    {
+      name: 'Samsung 980 Pro 1TB SSD',
+      buyer: 'Oliver Wilson',
+      date: '2023-12-05',
+      price: '199',
+      id: 19,
+      status: 'refund'
+    },
+    {
+      name: 'Logitech G430',
+      buyer: 'Oliver Wilson',
+      date: '2023-12-05',
+      price: '199',
+      id: 20,
+      status: 'shipped'
     }
   ],
   reviews: {
