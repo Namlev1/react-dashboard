@@ -21,7 +21,7 @@ const Orders = () => {
     const filteredOrders = orders.filter((order) => {
         switch (chosenOrdersSort) {
             case 'Paid orders':
-                return order.status === "paid";
+                return order.status === "shipped";
             case 'Unpaid orders':
                 return order.status === 'unpaid';
             case "Shipped orders":
