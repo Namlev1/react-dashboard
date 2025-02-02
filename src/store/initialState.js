@@ -130,7 +130,10 @@ const initialState = {
     }
   ],
   chosenOrdersSort: "Shipped orders",
-  chosenRankingSort: "Best to worst"
+  chosenRankingSort: "Best to worst",
+  chosenPeriod: "This week",
+  chosenMetric: "Products sold",
+  chosenChartType: "Bar plot"
 }
 
 export default initialState

@@ -5,14 +5,26 @@ import './SaleChart.css'
 import DropdownMenu from "../../molecules/DropdownMenu/DropdownMenu.jsx";
 import ToggleWithImage from "../../molecules/Toggle/ToggleWithImage.jsx";
 import Cross from "../../atoms/Icons/Cross.svg";
+import {
+    setChosenChartType,
+    setChosenMetric,
+    setChosenPeriod
+} from "../../../../store/accountSlice.js";
 
 const ChartSettings = () => {
     const [isOpen, setIsOpen] = useState(false);
     const settingsRef = useRef(null);
 
+    const chosenPeriod = useSelector((store) => store.accountSlice.chosenPeriod);
+    const chosenMetric = useSelector((store) => store.accountSlice.chosenMetric);
+    const chosenChartType = useSelector((store) => store.accountSlice.chosenChartType);
+
+    const dispatch = useDispatch();
+
     const toggleSettings = () => {
         setIsOpen(!isOpen);
     };
+
 
     const handleClickOutside = (event) => {
         if (settingsRef.current && !settingsRef.current.contains(event.target)) {
@@ -26,7 +38,16 @@ const ChartSettings = () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
-    
+
+    const handlePeriodSelect = (option) => {
+        dispatch(setChosenPeriod(option));
+    };
+    const handleMetricSelect = (option) => {
+        dispatch(setChosenMetric(option));
+    };
+    const handleChartTypeSelect = (option) => {
+        dispatch(setChosenChartType(option));
+    };
 
     return (
         <div className="settings-container" ref={settingsRef}>
@@ -44,14 +65,18 @@ const ChartSettings = () => {
                             "This month",
                             "Last month"
                         ]}
+                        onOptionSelect={handlePeriodSelect}
+                        storeVariable={chosenPeriod}
 
                     />
                     <DropdownMenu
                         title={'Metric' || "Select an option"}
                         options={[
                             "Products sold",
-                            "income"
+                            "Income"
                         ]}
+                        onOptionSelect={handleMetricSelect}
+                        storeVariable={chosenMetric}
 
                     />
                     <DropdownMenu
@@ -60,6 +85,8 @@ const ChartSettings = () => {
                             "Bar plot",
                             "Line plot"
                         ]}
+                        onOptionSelect={handleChartTypeSelect}
+                        storeVariable={chosenChartType}
 
                     />
 
