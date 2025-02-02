@@ -31,9 +31,9 @@ const Toolbar = () => {
                     <span className="arrow">▼</span>
                     {isShopDropdownOpen && (
                         <div className="toolbar-dropdown-menu">
-                            <div className="dropdown-item">Shop 1</div>
-                            <div className="dropdown-item">Shop 2</div>
-                            <div className="dropdown-item">Shop 3</div>
+                            <div className="toolbar-dropdown-item">Shop 1</div>
+                            <div className="toolbar-dropdown-item">Shop 2</div>
+                            <div className="toolbar-dropdown-item">Shop 3</div>
                         </div>
                     )}
                 </div>
@@ -43,10 +43,10 @@ const Toolbar = () => {
                     <span className="arrow">▼</span>
                     {isAccountDropdownOpen && (
                         <div className="toolbar-dropdown-menu">
-                            <div className="dropdown-item">Settings</div>
-                            <div className="dropdown-item">Help</div>
-                            <div className="dropdown-item">Switch account</div>
-                            <div className="dropdown-item">Log out</div>
+                            <div className="toolbar-dropdown-item">Settings</div>
+                            <div className="toolbar-dropdown-item">Help</div>
+                            <div className="toolbar-dropdown-item">Switch account</div>
+                            <div className="toolbar-dropdown-item">Log out</div>
                         </div>
                     )}
                 </div>
