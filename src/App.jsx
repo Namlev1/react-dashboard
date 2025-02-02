@@ -8,6 +8,8 @@ import { toggle } from './store/accountSlice.js'
 import Reviews from './assets/components/widgets/reviews/Reviews.jsx'
 import ProductRanking from './assets/components/widgets/productRanking/ProductRanking.jsx'
 import SaleChart from "./assets/components/widgets/saleChart/saleChart.jsx";
+import ToggleWithImage from "./assets/components/molecules/Toggle/ToggleWithImage";
+import LanguageIcon from '../src/assets/components/atoms/Icons/LanguageIcon.svg';
 import DropdownMenu from "./assets/components/molecules/DropdownMenu/DropdownMenu.jsx";
 
 function App() {
@@ -35,6 +37,10 @@ function App() {
 
               <Reviews />
               <SaleChart/>
+              <ToggleWithImage
+              label="23123"
+              svgImage={LanguageIcon}
+              />
             </div>
           </>
         )}

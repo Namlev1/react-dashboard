@@ -12,12 +12,23 @@ import {
   Legend,
 } from "chart.js";
 import LanguageIcon from "../../atoms/Icons/LanguageIcon.svg";
-import React from "react";
+import React, {useState} from "react";
+import DropdownMenu from "../../molecules/DropdownMenu/DropdownMenu.jsx";
+import ChartSettings from "./ChartSettings.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {setChosenRankingSort} from "../../../../store/accountSlice.js";
 
 // Rejestracja modułów Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const SaleChart = () => {
+
+  const chosenOrdersSort = useSelector((store) => store.accountSlice.chosenRankingSort);
+  const dispatch = useDispatch();
+  const handleOptionSelect = (option) => {
+    dispatch(setChosenRankingSort(option));
+  };
+
   // Dane dla wykresu
   const data = {
     labels: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
@@ -78,7 +89,16 @@ const SaleChart = () => {
         <WidgetTitleBar text={'Sale Chart'} />
         <div className={"widget-content"}>
           <div className={"widget-frame"}>
-            <img src={GearIcon} alt="Gear Icon" className="gear-icon"/>
+            <ChartSettings
+                title={'Sort by' || "Select an option"}
+                options={[
+                  "Best to worst",
+                  "Worst to best"
+                ]}
+                onOptionSelect={handleOptionSelect}
+                storeVariable={chosenOrdersSort}
+            />
+
             <Bar data={data} options={options} />
 
 

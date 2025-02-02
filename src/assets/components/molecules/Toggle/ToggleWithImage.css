@@ -1,0 +1,35 @@
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.toggle-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.toggle-box.unchecked {
+    background-color: var(--table-background);
+}
+
+.toggle-box.checked {
+    background-color: var(--table-background);
+}
+
+.toggle-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.toggle-label {
+    font-size: 16px;
+    color: var(--text);
+    cursor: pointer;
+}
+

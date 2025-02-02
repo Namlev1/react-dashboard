@@ -34,6 +34,7 @@ const Orders = () => {
             ]}
             onOptionSelect={handleOptionSelect}
             storeVariable={chosenOrdersSort}
+            customWidth="30%"
         />
 
       <div className={'widget-content'}>

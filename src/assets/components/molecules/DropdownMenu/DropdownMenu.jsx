@@ -3,7 +3,7 @@ import {useEffect, useRef, useState} from "react";
 import DropdownTriangle from '../../atoms/Icons/DropdownTriangle.svg';
 import './DropdownMenu.css'
 
-const DropdownMenu = ({ options, title, onOptionSelect, storeVariable}) => {
+const DropdownMenu = ({ options, title, onOptionSelect, storeVariable, customWidth}) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -31,7 +31,8 @@ const DropdownMenu = ({ options, title, onOptionSelect, storeVariable}) => {
     };
 
     return (
-        <div className="dropdown-container" ref={dropdownRef}>
+        <div className="dropdown-container" ref={dropdownRef}
+             style={{ width: customWidth || "90%" }}>
             <div className="dropdown-title">{title || "Select an option"}</div>
             <button className="dropdown-button" onClick={toggleMenu}>
                 {chosenOrdersSort || "Select an option"}
