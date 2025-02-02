@@ -59,3 +59,7 @@
     width: 80px;
     filter: invert(var(--gear-icon-color));
 }
+
+.no-reviews-message{
+    color: var(--text);
+}

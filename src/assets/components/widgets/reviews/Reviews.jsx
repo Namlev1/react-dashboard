@@ -22,61 +22,68 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div className={'widget reviews-widget'}>
-      <WidgetTitleBar text={'Reviews'} />
+      <div className={'widget reviews-widget'}>
+        <WidgetTitleBar text={'Reviews'}/>
 
-      <div className={'widget-content'}>
-        <div className={'widget-frame ' + styles['score-frame']}>
+        <div className={'widget-content'}>
+          <div className={'widget-frame ' + styles['score-frame']}>
+            <div>
+              <p>
+                {data.score}%
+                <span className={styles['small-font']}> positive reviews</span>
+              </p>
+            </div>
+            <div className={styles['score-frame-stats']}>
+              <div>
+                <img src={LikeIcon} alt={'Positive reviews'}/>
+                <p style={{color: 'var(--like)'}}>{data.positive}</p>
+              </div>
+              <div>
+                <img src={DislikeIcon} alt={'Negative reviews'}/>
+                <p style={{color: 'var(--dislike)'}}>{data.negative}</p>
+              </div>
+            </div>
+          </div>
+
           <div>
-            <p>
-              {data.score}%
-              <span className={styles['small-font']}> positive reviews</span>
-            </p>
-          </div>
-          <div className={styles['score-frame-stats']}>
-            <div>
-              <img src={LikeIcon} alt={'Positive reviews'} />
-              <p style={{ color: 'var(--like)' }}>{data.positive}</p>
-            </div>
-            <div>
-              <img src={DislikeIcon} alt={'Negative reviews'} />
-              <p style={{ color: 'var(--dislike)' }}>{data.negative}</p>
-            </div>
-          </div>
-        </div>
+            <div className={'widget-frame ' + styles['review-table-frame']}>
+              <h3>Most recent reviews</h3>
 
-        <div>
-          <div className={'widget-frame ' + styles['review-table-frame']}>
-            <h3>Most recent reviews</h3>
-            {loading ? (
-                <div className={styles['loading-container']}>
-                  <img src={LoadingReviews} className={styles['loading-icon']}/>
-                </div>
-            ) : (
-                <Table ratio={'10-5-2-13'}>
-                  {data.details.map((review) => (
-                      <TableEntry
-                          key={review.id}
-                          content={[
-                            review.name,
-                            review.buyer,
-                            {
-                              isImg: true,
-                              src:
-                                  review.rating === 'positive' ? LikeIcon : DislikeIcon,
-                              alt: 'Rating icon'
-                            },
-                            review.comment
-                          ]}
-                      />
-                  ))}
-                </Table>
-            )}
+              {loading ? (
+                  <div className={styles['loading-container']}>
+                    <img src={LoadingReviews} className={styles['loading-icon']}/>
+                  </div>
+              ) : data.details.length === 0 ? (
+                  // Komunikat, gdy brak recenzji
+                  <p className={styles['no-reviews-message']}>
+                    No reviews available at the moment.
+                  </p>
+              ) : (
+                  <Table ratio={'10-5-2-13'}>
+                    {data.details.map((review) => (
+                        <TableEntry
+                            key={review.id}
+                            content={[
+                              review.name,
+                              review.buyer,
+                              {
+                                isImg: true,
+                                src:
+                                    review.rating === 'positive' ? LikeIcon : DislikeIcon,
+                                alt: 'Rating icon'
+                              },
+                              review.comment
+                            ]}
+                        />
+                    ))}
+                  </Table>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
-};
 
-export default Reviews
+
+}
+export default Reviews;
