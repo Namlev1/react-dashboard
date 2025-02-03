@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import './Toolbar.css';
 import {DarkModeToggle} from "../atoms/DarkModeButton.jsx";
 import LanguageIcon from '../atoms/Icons/LanguageIcon.svg';
+import {useDispatch, useSelector} from "react-redux";
+import {toggle} from "../../../store/accountSlice.js";
+import store from "../../../store/store.js";
 
 const Toolbar = () => {
     const [isShopDropdownOpen, setShopDropdownOpen] = useState(false);
     const [isAccountDropdownOpen, setAccountDropdownOpen] = useState(false);
+    const [isAccountListOpen, setAccountListOpen] = useState(false);
+
+    const dispatch = useDispatch();
+    const accountId = useSelector((store) => store.accountSlice.accountId)
+    const handleToggle = () => {
+        dispatch(toggle());
+        toggleAccountList();
+    };
 
     const toggleShopDropdown = () => {
         setShopDropdownOpen(!isShopDropdownOpen);
@@ -13,6 +24,10 @@ const Toolbar = () => {
 
     const toggleAccountDropdown = () => {
         setAccountDropdownOpen(!isAccountDropdownOpen);
+    };
+
+    const toggleAccountList = () => {
+        setAccountListOpen(!isAccountListOpen);
     };
 
     return (
@@ -45,8 +60,18 @@ const Toolbar = () => {
                         <div className="toolbar-dropdown-menu">
                             <div className="toolbar-dropdown-item">Settings</div>
                             <div className="toolbar-dropdown-item">Help</div>
-                            <div className="toolbar-dropdown-item">Switch account</div>
+                            <div className="toolbar-dropdown-item" onClick={toggleAccountList}>Switch account</div>
                             <div className="toolbar-dropdown-item">Log out</div>
+                        </div>
+                    )}
+                    {isAccountListOpen && accountId == "1" &&(
+                        <div className="toolbar-dropdown-menu">
+                            <div className="toolbar-dropdown-item" onClick={handleToggle}>Account1</div>
+                        </div>
+                    )}
+                    {isAccountListOpen && accountId == "2" &&(
+                        <div className="toolbar-dropdown-menu">
+                            <div className="toolbar-dropdown-item">No other accounts logged in</div>
                         </div>
                     )}
                 </div>

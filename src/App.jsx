@@ -7,6 +7,7 @@ import Reviews from './assets/components/widgets/reviews/Reviews.jsx'
 import ProductRanking from './assets/components/widgets/productRanking/ProductRanking.jsx'
 import SaleChart from './assets/components/widgets/saleChart/saleChart.jsx'
 import OrderView from "./assets/components/molecules/OrderView/OrderView.jsx";
+import Userlist from "./assets/components/molecules/Userlist.jsx";
 
 function App() {
   const viewportWidth = UseViewportWidth()
@@ -33,6 +34,7 @@ function App() {
             <div>
               <Reviews />
               <SaleChart />
+                <Userlist/>
             </div>
           </>
         )}
