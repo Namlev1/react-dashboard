@@ -16,7 +16,12 @@
 }
 
 .spacer{
-    height:30px;
+    padding: 10px 0px 10px 10px;
+    font-size: 30px;
+    color: var(--text);
+    background-color: var(--color-background);
+    border: 1px solid var(--text);
+    border-radius: 12px;
 }
 .order-details-background{
     background-color: var(--table-background);
@@ -32,7 +37,7 @@
     height: 40px;
     border-radius: 12px;
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 20px;
     display: flex;
     justify-content: center;

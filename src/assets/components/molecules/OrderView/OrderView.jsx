@@ -30,7 +30,7 @@ const OrderView = (props) => {
                     <div className="close-button" onClick={props.onClick}>
                         <img src={Cross} alt="Checked Icon" className="close-icon" />
                     </div>
-                    <div className="spacer"></div>
+                    <div className="spacer">Order Details</div>
                     <div className="field-title">Id</div>
                     <div className="order-details-background">
                         {props.id}
