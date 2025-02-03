@@ -13,12 +13,17 @@ const Reviews = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Ustawiamy stan loading na true, kiedy dane recenzji się zmieniają
+    setLoading(true);
+
+    // Ustawienie opóźnienia, po którym stan loading przechodzi na false
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
 
+    // Czyścimy timer, gdy komponent się odmontowuje lub zmienia się zawartość recenzji
     return () => clearTimeout(timer);
-  }, []);
+  }, [data]);
 
   return (
       <div className={'widget reviews-widget'}>
