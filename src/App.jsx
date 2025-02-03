@@ -3,13 +3,11 @@ import Toolbar from './assets/components/molecules/Toolbar'
 import QualityOfSale from './assets/components/widgets/qualityOfSale/QualityOfSale.jsx'
 import Orders from './assets/components/widgets/orders/Orders.jsx'
 import UseViewportWidth from './hooks/useViewportWidth.js'
-import { useDispatch } from 'react-redux'
-import { toggle } from './store/accountSlice.js'
 import Reviews from './assets/components/widgets/reviews/Reviews.jsx'
 import ProductRanking from './assets/components/widgets/productRanking/ProductRanking.jsx'
+import SaleChart from './assets/components/widgets/saleChart/saleChart.jsx'
 
 function App() {
-  const dispatch = useDispatch()
   const viewportWidth = UseViewportWidth()
   return (
     <div className="App">
@@ -21,21 +19,23 @@ function App() {
             <QualityOfSale />
             <Orders />
             <Reviews />
+            <ProductRanking />
+            <SaleChart />
           </div>
         ) : (
           <>
             <div>
               <QualityOfSale />
               <ProductRanking />
+              <Orders />
             </div>
             <div>
-              <Orders />
               <Reviews />
+              <SaleChart />
             </div>
           </>
         )}
       </div>
-      <button onClick={() => dispatch(toggle())}>Toggle data</button>
     </div>
   )
 }

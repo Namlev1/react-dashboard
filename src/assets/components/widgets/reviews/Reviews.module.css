@@ -36,3 +36,30 @@
     font-size: 1rem;
     margin-bottom: 5rem;
 }
+
+.loading-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-icon{
+    animation: rotate 1s linear infinite;
+    height: 80px;
+    width: 80px;
+    filter: invert(var(--gear-icon-color));
+}
+
+.no-reviews-message{
+    color: var(--text);
+}

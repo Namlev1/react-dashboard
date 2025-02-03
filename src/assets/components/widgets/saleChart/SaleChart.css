@@ -1,0 +1,33 @@
+.gear-icon {
+    filter: invert(var(--gear-icon-color));
+    float:right;
+    padding: 5px;
+}
+
+.settings-container{
+    position: relative;
+    width: 40%;
+    padding: 10px 0px 0px 20px;
+    float: right;
+}
+
+.settings-button {
+    background: var(--color-background);
+    width: 30px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    float: right;
+}
+
+.settings-frame {
+    position: absolute;
+    right: 10px;
+    width: 100%;
+    float: right;
+    background-color: var(--color-background);
+    border: 1px solid var(--text);
+    border-radius: 12px;
+    padding: .5rem;
+}

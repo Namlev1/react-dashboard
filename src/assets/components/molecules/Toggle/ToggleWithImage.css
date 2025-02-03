@@ -1,0 +1,37 @@
+.toggle-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+.toggle-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.toggle-box.unchecked {
+    background-color: var(--table-background);
+}
+
+.toggle-box.checked {
+    background-color: var(--table-background);
+}
+
+.toggle-icon {
+    filter: invert(var(--gear-icon-color));
+    width: 28px;
+    height: 28px;
+}
+
+.toggle-label {
+    font-size: 16px;
+    color: var(--text);
+    cursor: pointer;
+}
+

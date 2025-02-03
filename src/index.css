@@ -17,6 +17,7 @@
   --widget-headline: #ffffff;
   --text: #000000;
   --text-opaque: #acacac;
+  --gear-icon-color: 0%;
 }
 
 .dark-mode {
@@ -26,6 +27,7 @@
   --table-hover: #404040;
   --table-text-color: #ffffff;
   --text: #ffffff;
+  --gear-icon-color: 100%;
 }
 
 
