@@ -5,6 +5,8 @@ import TableHeader from '../../molecules/Table/TableHeader.jsx'
 import {useDispatch, useSelector} from 'react-redux'
 import DropdownMenu from "../../molecules/DropdownMenu/DropdownMenu.jsx";
 import {setChosenOrdersSort} from "../../../../store/accountSlice.js";
+import {useState} from "react";
+import OrderView from "../../molecules/OrderView/OrderView.jsx";
 
 const Orders = () => {
   const orders = useSelector((store) => store.accountSlice.orders)
@@ -13,7 +15,18 @@ const Orders = () => {
     const dispatch = useDispatch();
 
 
+    const [selectedOrder, setSelectedOrder] = useState(null);
+
+    // Funkcja obsługująca kliknięcie na zamówienie
+    const handleOrderClick = (order) => {
+        setSelectedOrder(order); // Ustawia kliknięte zamówienie jako wybrane
+    };
+
+    const hideDetails = () =>{
+        setSelectedOrder(null);
+    }
     const handleOptionSelect = (option) => {
+
         dispatch(setChosenOrdersSort(option));
     };
 
@@ -39,7 +52,21 @@ const Orders = () => {
 
     <div className={'widget'}>
       <WidgetTitleBar text={'Orders'} />
-
+<div>
+<div>
+        {selectedOrder && (
+            <OrderView
+                id={selectedOrder.id}
+                name={selectedOrder.name}
+                buyer={selectedOrder.buyer}
+                date={selectedOrder.date}
+                status={selectedOrder.status}
+                price={selectedOrder.price}
+                onClick={hideDetails}
+            />
+        )}
+    </div>
+</div>
 
         <DropdownMenu
             title={'Orders Type' || "Select an option"}
@@ -58,6 +85,7 @@ const Orders = () => {
       <div className={'widget-content'}>
         <div>
           <div className={'widget-frame'}>
+
             <Table ratio={'3-2-3-2'}>
               <TableHeader content={['name', 'buyer', 'date', 'price']} />
               {filteredOrders.map((order) => (
@@ -69,6 +97,7 @@ const Orders = () => {
                     order.date,
                     `${order.price}$`
                   ]}
+                  onClick={() => handleOrderClick(order)}
                 />
               ))}
             </Table>
