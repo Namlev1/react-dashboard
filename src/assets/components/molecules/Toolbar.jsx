@@ -91,7 +91,7 @@ const Toolbar = () => {
           onClick={toggleAccountDropdown}
           ref={accountDropdownRef}
         >
-          Username
+          Username{accountId}
           <span className="arrow">▼</span>
           {isAccountDropdownOpen && (
             <div className="toolbar-dropdown-menu">
@@ -113,7 +113,7 @@ const Toolbar = () => {
           {isAccountListOpen && accountId == '1' && (
             <div className="toolbar-dropdown-menu">
               <div className="toolbar-dropdown-item" onClick={handleToggle}>
-                Account1
+                Account2
               </div>
             </div>
           )}
