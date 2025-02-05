@@ -26,8 +26,8 @@ function App() {
           <>
             <div>
               <QualityOfSale />
-              <ProductRanking />
               <Orders />
+              <ProductRanking />
             </div>
             <div>
               <Reviews />

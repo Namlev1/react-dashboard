@@ -24,6 +24,7 @@
 }
 
 .toggle-icon {
+    position: absolute;
     filter: invert(var(--gear-icon-color));
     width: 28px;
     height: 28px;

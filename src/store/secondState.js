@@ -101,46 +101,10 @@ const secondState = {
     }
   ],
   reviews: {
-    score: 88,
-    positive: 95,
-    negative: 8,
-    details: [
-      {
-        id: 1,
-        name: 'AMD Ryzen 9 5950X',
-        buyer: 'Michael Green',
-        rating: 'negative',
-        comment: 'Overheats under heavy load. Disappointed.'
-      },
-      {
-        id: 2,
-        name: 'Intel Core i9-13900K',
-        buyer: 'Sarah White',
-        rating: 'positive',
-        comment: 'Incredible performance for gaming.'
-      },
-      {
-        id: 3,
-        name: 'Apple M2 Max',
-        buyer: 'David Black',
-        rating: 'positive',
-        comment: 'Best laptop I’ve ever owned.'
-      },
-      {
-        id: 4,
-        name: 'Samsung Galaxy Book3 Ultra',
-        buyer: 'Emily Blue',
-        rating: 'positive',
-        comment: 'Amazing display and build quality.'
-      },
-      {
-        id: 5,
-        name: 'AMD Ryzen 9 5950X',
-        buyer: 'John Doe',
-        rating: 'positive',
-        comment: 'Great CPU for multitasking and gaming.'
-      }
-    ]
+    score: 0,
+    positive: 0,
+    negative: 0,
+    details: []
   },
   ranking: [
     {

@@ -1,111 +1,124 @@
 import WidgetTitleBar from '../../atoms/WidgetTitleBar/WidgetTitleBar.jsx'
-import GearIcon from '../../atoms/Icons/GearIcon.svg';
 import './SaleChart.css'
-import { Bar } from "react-chartjs-2";
+import { Bar } from 'react-chartjs-2'
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
-  Title,
-  Tooltip,
+  CategoryScale,
+  Chart as ChartJS,
   Legend,
-} from "chart.js";
-import LanguageIcon from "../../atoms/Icons/LanguageIcon.svg";
-import React, {useState} from "react";
-import DropdownMenu from "../../molecules/DropdownMenu/DropdownMenu.jsx";
-import ChartSettings from "./ChartSettings.jsx";
-import {useDispatch, useSelector} from "react-redux";
-import {setChosenRankingSort} from "../../../../store/accountSlice.js";
+  LinearScale,
+  Title,
+  Tooltip
+} from 'chart.js'
+import React, { useEffect, useState } from 'react'
+import ChartSettings from './ChartSettings.jsx'
+import { useDispatch, useSelector } from 'react-redux'
+import { setChosenRankingSort } from '../../../../store/accountSlice.js'
 
 // Rejestracja modułów Chart.js
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const SaleChart = () => {
-
-  const chosenOrdersSort = useSelector((store) => store.accountSlice.chosenRankingSort);
-  const dispatch = useDispatch();
+  const chosenOrdersSort = useSelector(
+    (store) => store.accountSlice.chosenRankingSort
+  )
+  const dispatch = useDispatch()
   const handleOptionSelect = (option) => {
-    dispatch(setChosenRankingSort(option));
-  };
+    dispatch(setChosenRankingSort(option))
+  }
+
+  const [tickColor, setTickColor] = useState('#333')
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setTickColor(
+        document.documentElement.classList.contains('dark-mode')
+          ? '#fff'
+          : '#333'
+      )
+    }
+    checkDarkMode()
+    const observer = new MutationObserver(checkDarkMode)
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+    return () => observer.disconnect()
+  }, [])
 
   // Dane dla wykresu
   const data = {
-    labels: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+    labels: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
     datasets: [
       {
-        label: "Products sold",
-        data: [90, 50, 80, 40, 60, 20, 100], // Mockowane dane sprzedaży
-        backgroundColor: "green", // Kolor słupków
-        borderRadius: 4, // Zaokrąglenie
-      },
-    ],
-  };
+        label: 'Products sold',
+        data: [90, 50, 80, 40, 60, 20, 100],
+        backgroundColor: 'green',
+        borderRadius: 4
+      }
+    ]
+  }
 
   // Opcje konfiguracji wykresu
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        display: false, // Ukrycie legendy
+        display: false
       },
       title: {
         display: true,
-        text: "Products sold", // Tytuł wykresu
-      },
+        text: 'Products sold',
+        color: tickColor
+      }
     },
     scales: {
       y: {
         grid: {
-          color: "#e0e0e0", // Kolor linii siatki (pionowej)
+          color: '#e0e0e0'
         },
         ticks: {
-          color: "#333", // Kolor tekstu osi Y
+          color: tickColor
         },
         title: {
           display: true,
-          text: "Products sold",
-          color: "#333", // Kolor tytułu osi Y
+          text: 'Products sold',
+          color: tickColor
         },
-        beginAtZero: true,
+        beginAtZero: true
       },
       x: {
         grid: {
-          color: "#e0e0e0", // Kolor linii siatki (poziomej)
+          color: '#e0e0e0'
         },
         ticks: {
-          color: "#333", // Kolor tekstu osi X
+          color: tickColor
         },
         title: {
           display: true,
-          text: "Day",
-          color: "#333", // Kolor tytułu osi X
-        },
-      },
-    },
-  };
+          text: 'Day',
+          color: tickColor
+        }
+      }
+    }
+  }
+
   return (
-      <div className={"widget saleChart-widget"}>
-        <WidgetTitleBar text={'Sale Chart'} />
-        <div className={"widget-content"}>
-          <div className={"widget-frame"}>
-            <ChartSettings
-                title={'Sort by' || "Select an option"}
-                options={[
-                  "Best to worst",
-                  "Worst to best"
-                ]}
-                onOptionSelect={handleOptionSelect}
-                storeVariable={chosenOrdersSort}
-            />
-
-            <Bar data={data} options={options} />
-
-
-          </div>
+    <div className={'widget saleChart-widget'}>
+      <WidgetTitleBar text={'Sale Chart'} />
+      <div className={'widget-content'}>
+        <div className={'widget-frame'}>
+          <ChartSettings
+            title={'Sort by' || 'Select an option'}
+            options={['Best to worst', 'Worst to best']}
+            onOptionSelect={handleOptionSelect}
+            storeVariable={chosenOrdersSort}
+          />
+          <Bar data={data} options={options} />
         </div>
       </div>
-  );
-};
+    </div>
+  )
+}
 
-export default SaleChart;
+export default SaleChart

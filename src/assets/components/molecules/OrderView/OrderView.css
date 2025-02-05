@@ -1,0 +1,70 @@
+
+.order-view-container{
+    position: absolute;
+    width: 25%;
+    padding: 10px 0px 0px 20px;
+    float: right;
+    z-index: 20;
+}
+
+.close-icon {
+    filter: invert(var(--gear-icon-color));
+    top: 10px;
+    left: 10px;
+    width: 28px;
+    height: 28px;
+}
+
+.spacer{
+    padding: 10px 0px 10px 10px;
+    font-size: 30px;
+    color: var(--text);
+    background-color: var(--color-background);
+    border: 1px solid var(--text);
+    border-radius: 12px;
+}
+.order-details-background{
+    background-color: var(--table-background);
+    border-radius: 8px;
+    padding: 5px;
+    color: var(--text);
+
+}
+
+.close-button {
+    background-color: var(--table-background);
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease; /* Dodajemy płynne przejście */
+}
+
+.close-button:hover {
+    background-color: var(--table-hover); /* Zmieniamy kolor tła na "highlight" */
+}
+.field-title {
+    padding: 5px 0px 0px 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text);
+    transition: background-color ease-in 200ms;
+}
+
+
+.order-view-frame {
+    top: 30px;
+    right: 10px;
+    width: 100%;
+    float: right;
+    padding: 5px;
+    background-color: var(--color-background);
+    border: 1px solid var(--text);
+    border-radius: 12px;
+}
